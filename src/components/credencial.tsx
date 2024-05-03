@@ -1,12 +1,14 @@
 import { View, Image, ImageBackground, Text, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons"
 import { colors } from "@/styles/colors";
+import { QRCode } from "@/components/qrcode"
 
 type Props = {
     image?: string,
     onChageAvatar?: () => void
+    onExpandQRCode?: () => void
 }
-export function Credencial({ onChageAvatar, image }: Props) {
+export function Credencial({ onChageAvatar,onExpandQRCode, image }: Props) {
     return (
         <View className="
         w-full
@@ -59,8 +61,8 @@ export function Credencial({ onChageAvatar, image }: Props) {
 
                 <Text className="font-regular text-base text-zinc-300 mb-4">augustorsn@gmail.com</Text>
 
-                <Image className="w-32 h-32" source={require("@/assets/ticket/qrcode.png")} />
-                <TouchableOpacity activeOpacity={0.7} className="mt-6">
+                <QRCode value={"213asd123"} size={120}/>
+                <TouchableOpacity activeOpacity={0.7} className="mt-6" onPress={onExpandQRCode}>
                     <Text className="font-body text-orange-500 text-sm"> Ampliar QRCode</Text>
                 </TouchableOpacity>
 
