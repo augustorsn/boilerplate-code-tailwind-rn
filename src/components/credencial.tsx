@@ -1,6 +1,12 @@
 import { View, Image, ImageBackground, Text, TouchableOpacity } from "react-native";
+import { Feather } from "@expo/vector-icons"
+import { colors } from "@/styles/colors";
 
-export function Credencial() {
+type Props = {
+    image?: string,
+    onChageAvatar?: () => void
+}
+export function Credencial({ onChageAvatar, image }: Props) {
     return (
         <View className="
         w-full
@@ -31,11 +37,26 @@ export function Credencial() {
 
                     <View className="w-40 h-40 bg-black rounded-full" />
                 </ImageBackground>
+                {
+                    image ?
+                        <TouchableOpacity activeOpacity={0.7} 
+                            onPress={onChageAvatar}>
+                            <Image source={{ uri: image }}
+                                className="w-36 h-36 rounded-full -mt-24" />
+                        </TouchableOpacity>
 
-                <Image source={{ uri: "https://github.com/augustorsn.png" }}
-                    className="w-36 h-36 rounded-full -mt-24" />
+                        :
+                        <TouchableOpacity activeOpacity={0.7} className="w-36 h-36 rounded-full -mt-24 bg-gray-400 items-center justify-center"
+                            onPress={onChageAvatar}>
+                            <Feather name="camera" color={colors.green[400]} size={32} />
+                        </TouchableOpacity>
+
+
+                }
+
 
                 <Text className="font-bold text-2xl text-zinc-50 mt-4">Augusto Rodrigues</Text>
+
                 <Text className="font-regular text-base text-zinc-300 mb-4">augustorsn@gmail.com</Text>
 
                 <Image className="w-32 h-32" source={require("@/assets/ticket/qrcode.png")} />
