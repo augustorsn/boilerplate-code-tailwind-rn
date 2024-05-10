@@ -5,14 +5,19 @@ import { QRCode } from "@/components/qrcode"
 import { BadgeStore } from "@/store/badge-store";
 import { MotiView } from "moti"
 
+
 type Props = {
     data: BadgeStore,
 
     onChageAvatar?: () => void
     onExpandQRCode?: () => void
 }
+async function updateImage(){
+
+}
 export function Credencial({ onChageAvatar, onExpandQRCode, data }: Props) {
     const { height } = useWindowDimensions()
+   
     return (
         <MotiView
             from={{
