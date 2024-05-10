@@ -33,17 +33,12 @@ export default function Home() {
         } catch (error) {
             setIsLoading(false)
             return Alert.alert("Ingresso", "Ingresso não encontrado")
-
-        } finally {
-
-        }
-
+        } 
     }
 
     if (badgeStore.data?.checkInURL) {
         return <Redirect href="/ticket" />
     }
-
 
     return (
         <View className="flex-1 bg-green-500 items-center justify-center p-8">
